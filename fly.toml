@@ -1,0 +1,28 @@
+primary_region = "lax"
+swap_size_mb = 512
+
+[build]
+  image = "miniflux/miniflux:latest-distroless"
+
+[env]
+  CREATE_ADMIN = "1"
+  METRICS_ALLOWED_NETWORKS = "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,127.0.0.0/8"
+  METRICS_COLLECTOR = "1"
+  RUN_MIGRATIONS = "1"
+  TZ = "Asia/Tokyo"
+  WEBAUTHN = "1"
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+
+  [[http_service.checks]]
+    path = "/healthcheck"
+
+[[vm]]
+  size = "shared-cpu-1x"
+  memory = "256mb"
+
+[metrics]
+  port = 8080
+  path = "/metrics"
