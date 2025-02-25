@@ -1,0 +1,42 @@
+:root {
+    --entry-content-font-family: sans-serif;
+}
+
+.entry-content {
+    font-size: 1em;
+    line-height: 1.7;
+}
+
+textarea {
+    field-sizing: content;
+    width: 100%;
+}
+
+@media (max-width: 830px) {
+    :is(.page-header, .page-footer) ul {
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    :is(.page-header, .page-footer) li {
+        display: inline-block;
+    }
+
+    :is(.page-header, .page-footer) li:not(:last-child) {
+        padding-right: 15px;
+    }
+
+    .entry header h1 {
+        margin-bottom: 10px;
+        word-break: break-all;
+    }
+
+    .entry-actions ul {
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .entry-actions li:last-child {
+        margin-right: unset;
+    }
+}
